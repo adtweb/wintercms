@@ -1,0 +1,18 @@
+.idea/
+.vscode/
+
+.venv/
+.env/
+.env
+
+build/
+vendor/
+storage/mysql
+
+# python
+*.py[cod]
+__pycache__/
+
+# pytest
+.pytest_cache/
+pytest.ini
