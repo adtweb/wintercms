@@ -2,7 +2,7 @@
 
 # Winter CMS
 
-Based on: [![Docker + Winter CMS](https://github.com/MPO-Web-Consulting/docker-wintercms)
+Based on: [Docker + Winter CMS](https://github.com/MPO-Web-Consulting/docker-wintercms)
 
 ## Quick Start
 
@@ -10,7 +10,7 @@ For first run Winter CMS using Docker, start a container using the latest image,
 
 ```bash
 $ docker compose up
-``
+```
 
 Installation of Winter CMS required only on first run:
 
@@ -27,7 +27,7 @@ Run the container in the background by passing the `-d` option:
 
 ```bash
 $ docker compose up -d
-``
+```
 
 To stop Winter CMS, stop a container
 
