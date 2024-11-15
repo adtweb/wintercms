@@ -20,6 +20,9 @@ nginx-ssl.error.log
 sftp-config.json
 .ftpconfig
 
+# Volume ignores
+docker/mysql/db
+
 # Editor ignores
 nbproject
 .idea
