@@ -49,11 +49,12 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "@php artisan key:generate"
+            "@make key",
+            "@chmod -R 0777 storage"
         ],
         "post-update-cmd": [
-            "@php artisan winter:version",
-            "@php artisan package:discover"
+            "@make winter-version",
+            "@make package-discover"
         ],
         "test": [
             "phpunit --stop-on-failure"

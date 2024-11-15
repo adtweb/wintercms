@@ -19,6 +19,12 @@ bash:
 key:
 	docker exec -ti ${APP_DIR}-php php artisan key:generate
 
+winter-version:
+	docker exec -ti ${APP_DIR}-php php artisan winter:version
+
+package-discover:
+	docker exec -ti ${APP_DIR}-php php artisan package:discover
+
 seed:
 	docker exec -ti ${APP_DIR}-php php artisan db:seed
 
