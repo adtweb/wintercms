@@ -5,12 +5,12 @@ services:
       context: ./docker/nginx/
     container_name: ${APP_DIR}-nginx
     volumes:
-      - ./:/var/www/${APP_NAME}:delegated
+      - ./:/var/www/${APP_DIR}:delegated
       - ./docker/nginx/templates:/etc/nginx/templates:rw,cached
       - ./docker/nginx/configs/nginx.conf:/etc/nginx/nginx.conf
-    working_dir: /var/www/${APP_NAME}
+    working_dir: /var/www/${APP_DIR}
     environment:
-      APP_DIR: ${APP_NAME}
+      APP_DIR: ${APP_DIR}
     depends_on:
       - php
       - mysql
@@ -22,7 +22,7 @@ services:
       context: ./docker/php/
     container_name: ${APP_DIR}-php
     volumes:
-      - ./:/var/www/${APP_NAME}:delegated
+      - ./:/var/www/${APP_DIR}:delegated
       - ./docker/php/configs/www.conf:/usr/local/etc/php-fpm.d/www.conf
     working_dir: /var/www/${APP_DIR}
     environment:
@@ -33,7 +33,7 @@ services:
   mysql:
     build:
       context: ./docker/mysql/
-    container_name: ${APP_NAME}-mysql
+    container_name: ${APP_DIR}-mysql
     restart: unless-stopped
     tty: true
     volumes:
@@ -53,5 +53,5 @@ services:
       context: ./docker/node/
     container_name: ${APP_DIR}-node
     volumes:
-      - ./:/var/www/${APP_NAME}
+      - ./:/var/www/${APP_DIR}
     working_dir: /var/www/${APP_DIR}
