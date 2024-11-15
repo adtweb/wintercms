@@ -3,7 +3,7 @@ services:
   nginx:
     build:
       context: ./docker/nginx/
-    container_name: ${APP_NAME}-nginx
+    container_name: ${APP_DIR}-nginx
     volumes:
       - ./:/var/www/${APP_NAME}:delegated
       - ./docker/nginx/templates:/etc/nginx/templates:rw,cached
@@ -20,13 +20,13 @@ services:
   php:
     build:
       context: ./docker/php/
-    container_name: ${APP_NAME}-php
+    container_name: ${APP_DIR}-php
     volumes:
       - ./:/var/www/${APP_NAME}:delegated
       - ./docker/php/configs/www.conf:/usr/local/etc/php-fpm.d/www.conf
-    working_dir: /var/www/${APP_NAME}
+    working_dir: /var/www/${APP_DIR}
     environment:
-      PHP_IDE_CONFIG: serverName=${APP_NAME}
+      PHP_IDE_CONFIG: serverName=${APP_DIR}
     ports:
       - 9000
 
@@ -51,7 +51,7 @@ services:
   node:
     build:
       context: ./docker/node/
-    container_name: ${APP_NAME}-node
+    container_name: ${APP_DIR}-node
     volumes:
       - ./:/var/www/${APP_NAME}
-    working_dir: /var/www/${APP_NAME}
+    working_dir: /var/www/${APP_DIR}
