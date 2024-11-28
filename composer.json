@@ -48,13 +48,11 @@
         "laravel/pint": "^1.18"
     },
     "scripts": {
-        "post-create-project-cmd": [
-            "@make key",
-            "@chmod -R 0777 storage"
-        ],
         "post-update-cmd": [
-            "@make winter-version",
-            "@make package-discover"
+            "@chmod -R 0777 storage",
+            "@php artisan key:generate",
+            "@php artisan winter:version",
+            "@php artisan package:discover"
         ],
         "test": [
             "phpunit --stop-on-failure"
