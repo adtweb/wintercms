@@ -48,6 +48,11 @@ make ps
 make bash
 ```
 
+База данных
+```
+make db
+```
+
 php artisan db:seed
 ```
 make seed

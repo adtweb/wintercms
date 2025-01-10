@@ -16,6 +16,9 @@ ps:
 bash:
 	docker exec -ti ${APP_DIR}-php bash
 
+db:
+	docker exec -ti ${APP_DIR}-mysql mariadb -u${DB_USERNAME} -p${DB_PASSWORD} ${DB_DATABASE}
+
 key:
 	docker exec -ti ${APP_DIR}-php php artisan key:generate
 
